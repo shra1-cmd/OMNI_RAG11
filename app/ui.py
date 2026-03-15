@@ -1,4 +1,12 @@
 import os
+import sys
+from pathlib import Path
+
+# Add project root to sys.path so 'agents' modular imports work on Streamlit Cloud
+project_root = Path(__file__).parent.parent
+if str(project_root) not in sys.path:
+    sys.path.append(str(project_root))
+
 import shutil
 import time
 import streamlit as st
