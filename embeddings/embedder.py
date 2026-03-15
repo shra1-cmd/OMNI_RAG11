@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:67e0f2425e81d779a1c78e16dfe14a9f0e7d2bbb9764ed60f8602b788bd51889
-size 354
+# embeddings/embedder.py
+
+from llm.embedding_model import EmbeddingModel
+
+# Create ONE global embedding model instance
+_embedding_model = EmbeddingModel()
+
+def embed(text: str):
+    """
+    Convert text into a single embedding vector.
+    This function is intentionally simple and stable.
+    """
+    return _embedding_model.encode(text)[0]

@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a34cbbdeff672badd1d373aabcf215a822d415599c5a826d2315eb7a6c090c5f
-size 1775
+question,ground_truth,context_reference
+"What is the main purpose of the OmniRAG system?","OmniRAG is a modular Retrieval-Augmented Generation system designed for notebook-driven PDF ingestion and agentic retrieval.","Introduction section"
+"Which embedding model is used for generating vectors?","The system uses the BAAI/bge-base-en model with a dimension of 768.","Embedding Model section"
+"How does the system handle similarity search?","It uses FAISS with IndexFlatIP for cosine similarity search on normalized embeddings.","Vector Store section"
+"What is the default similarity threshold for the confidence gate?","The default similarity threshold is 0.7; if retrieval confidence is lower, the system refuses to answer.","Retrieval Policy section"
+"What are the core components of the RAG Triad?","The RAG Triad consists of Context Relevance, Faithfulness, and Answer Relevance.","Evaluation section"
+"How are PDF documents processed before indexing?","PDFs undergo semantic chunking where sentences are merged based on embedding similarity up to 350 words.","Preprocessing section"
+"What happens if the retriever finds no relevant context?","The agentic gating logic forces the LLM to refuse to answer to prevent hallucinations.","Hallucination Control section"
+"Is the system currently production-ready?","No, it is currently a structured prototype that is transitioning toward production modularity.","System Status section"
+"What metadata is stored along with the vectors in Pinecone?","The 'text' content of the chunk is stored in the metadata to allow for immediate retrieval.","Pinecone Setup section"
+"Which library is used for the user interface?","The UI is built using Streamlit and handles session-based memory without a database.","App UI section"

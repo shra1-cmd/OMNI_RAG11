@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:df374356baac62d2336ebb6744760c07f28ccf9815c4cff539ab853ce5629b1b
-size 365
+from agents.runner import run_agent
+
+print("\n=== OmniRAG Terminal Test ===")
+print("Type 'exit' to quit\n")
+
+while True:
+    q = input("You: ").strip()
+    if q.lower() == "exit":
+        print("\nExiting OmniRAG.")
+        break
+
+    answer = run_agent(q)
+
+    print("\n--- FINAL ANSWER ---")
+    print(answer)
+    print("--------------------\n")

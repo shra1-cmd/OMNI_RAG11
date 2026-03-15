@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2b5290f4e68824b4d2ea66a931518473484cbfea3238c122cb969fe7536cd933
-size 279
+class Planner:
+    def create_plan(self, question, short_term, long_term, retrieved_docs):
+        return {
+            "question": question,
+            "short_term": short_term,
+            "long_term": long_term,
+            "retrieved_docs": retrieved_docs
+        }

@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8bccd35a27c54b6e9f4a9758fa5b4293f2be9b44ee30be72064f68afec8eae9a
-size 624
+import os
+from pinecone import Pinecone
+from dotenv import load_dotenv
+
+load_dotenv()
+
+def list_indices():
+    api_key = os.getenv("PINECONE_API_KEY")
+    if not api_key:
+        print("PINECONE_API_KEY missing")
+        return
+
+    pc = Pinecone(api_key=api_key)
+    try:
+        indexes = pc.list_indexes()
+        print("Available Indices:")
+        for idx in indexes:
+            print(f"- {idx.name} ({idx.dimension} dim, {idx.metric} metric, status: {idx.status['ready']})")
+    except Exception as e:
+        print(f"Error listing indices: {e}")
+
+if __name__ == "__main__":
+    list_indices()

@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:055b27b0404ca6dd2bc8f2a1f4230cfa3c0e4e443ba97d76a450341ed0f1e2fc
-size 183
+# embeddings/embedder.py
+from llm.embedding_model import EmbeddingModel
+
+_embedding_model = EmbeddingModel()
+
+def embed(text: str):
+    return _embedding_model.encode(text)[0]

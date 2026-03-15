@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2f75e4721b73ed49e12d4555d032f743eab475f02d3c8491df184b84cfc68dc1
-size 608
+import uuid
+from typing import List
+from vectorstore.faiss_store import FaissStore
+
+class LongTermMemory:
+    def __init__(self, embedder, index_path="memory/faiss"):
+        self.store = FaissStore(embedder, index_path)
+
+    def add(self, text: str, metadata: dict):
+        metadata["id"] = str(uuid.uuid4())
+        self.store.add(text, metadata)
+
+    def search(self, query: str, k: int = 5):
+        print(f"[LTM] Searching FAISS for query: '{query}'")
+        results = self.store.search(query, k)
+        print(f"[LTM] FAISS returned {len(results)} results")
+        return results
+

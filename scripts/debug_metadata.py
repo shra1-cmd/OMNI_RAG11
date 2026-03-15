@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:04c7a23a42f60334f06eb4274a8dea67dbf7d0ce79c524f71b39492485d1e903
-size 867
+import os
+from pinecone import Pinecone
+from dotenv import load_dotenv
+
+load_dotenv()
+
+def debug_query():
+    api_key = os.getenv("PINECONE_API_KEY")
+    index_name = os.getenv("PINECONE_INDEX_NAME")
+    pc = Pinecone(api_key=api_key)
+    index = pc.Index(index_name)
+    
+    print(f"Stats for {index_name}:")
+    print(index.describe_index_stats())
+    
+    # Fetch some records to see metadata
+    # We can't easily list all, but we can query with a dummy vector
+    import numpy as np
+    dummy_vec = np.random.rand(384).tolist()
+    
+    res = index.query(vector=dummy_vec, top_k=10, include_metadata=True)
+    print("\nSample records from unfiltered query:")
+    for match in res['matches']:
+        print(f"ID: {match['id']}, Score: {match['score']}, Metadata: {match.get('metadata')}")
+
+if __name__ == "__main__":
+    debug_query()

@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2c8a6fc503f16d60512607b68309b3c907f81db1092afbd50dd4fc205b4f5df5
-size 588
+class MemoryManager:
+    def __init__(self, stm, ltm, summarizer):
+        self.stm = stm
+        self.ltm = ltm
+        self.summarizer = summarizer
+
+    def add_message(self, role, content):
+        self.stm.add(role, content)
+
+    def recall(self, query):
+        return self.ltm.search(query)
+
+    def persist_session(self, llm, session_id):
+        summary = self.summarizer(llm, self.stm.get())
+        self.ltm.add(
+            summary,
+            metadata={
+                "type": "summary",
+                "session_id": session_id
+            }
+        )

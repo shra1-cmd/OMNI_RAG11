@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fa05fbb4ad5f4d72a8371c186dea772ca7a90f00ba213c278c6d0cb32690cede
-size 495
+# configs/debug.py
+
+import os
+from datetime import datetime
+
+# Toggle debug mode here or via environment variable
+DEBUG = os.getenv("OMNIRAG_DEBUG", "true").lower() == "true"
+
+def log(message: str, component: str = "SYSTEM"):
+    """
+    Standard debug logger for OmniRAG.
+
+    Usage:
+        log("Something happened", "Runner")
+    """
+    if not DEBUG:
+        return
+
+    timestamp = datetime.now().strftime("%H:%M:%S")
+    print(f"[{timestamp}] [{component}] {message}")

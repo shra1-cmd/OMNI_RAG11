@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e80941ed7bb610fab205cdd85e7689c9277764531d2a1450b7a4edec87919f43
-size 250
+# Environments
+.env
+venv/
+env/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Streamlit
+.streamlit/
+streamlit_logs.txt
+
+# Data and Vector Store
+data/
+data/sessions/
+faiss_index/
+
+# Logs and Debug
+records/
+debug_*/
+
+# OS generated files
+.DS_Store
+Thumbs.db
