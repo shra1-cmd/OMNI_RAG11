@@ -11,5 +11,5 @@ llama-index-retrievers-bm25
 pymongo
 pinecone-client
 groq
-torch==2.3.1+cpu
+torch==2.5.1+cpu
 python-dotenv
