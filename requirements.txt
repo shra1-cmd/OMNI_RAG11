@@ -1,4 +1,5 @@
-﻿streamlit
+﻿--extra-index-url https://download.pytorch.org/whl/cpu
+streamlit
 pdfplumber
 pandas
 numpy
@@ -10,6 +11,6 @@ llama-index-retrievers-bm25
 pymongo
 pinecone-client
 groq
-torch==2.3.1
+torch==2.5.1+cpu
 python-dotenv
 requests>=2.31.0
