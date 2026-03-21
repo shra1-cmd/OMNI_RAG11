@@ -10,7 +10,7 @@ llama-index-core==0.14.18
 llama-index-embeddings-huggingface
 llama-index-retrievers-bm25
 pymongo
-pinecone-client
+pinecone
 groq
 torch==2.5.1+cpu
 python-dotenv
