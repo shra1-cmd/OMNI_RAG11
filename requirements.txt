@@ -1,15 +1,15 @@
-﻿--extra-index-url https://download.pytorch.org/whl/cpu
-streamlit
+﻿streamlit
 pdfplumber
 pandas
 numpy
 sentence-transformers
-llama-index
-llama-index-core
+llama-index==0.14.18
+llama-index-core==0.14.18
 llama-index-embeddings-huggingface
 llama-index-retrievers-bm25
 pymongo
 pinecone-client
 groq
-torch==2.5.1+cpu
+torch==2.3.1
 python-dotenv
+requests>=2.31.0
