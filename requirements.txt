@@ -1,8 +1,8 @@
 ﻿--extra-index-url https://download.pytorch.org/whl/cpu
 streamlit
 pdfplumber
-pandas<2.2.3
-numpy<2.0.0
+pandas
+numpy
 sentence-transformers
 llama-index
 llama-index-core
