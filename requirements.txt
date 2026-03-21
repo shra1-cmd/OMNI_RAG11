@@ -3,6 +3,7 @@ streamlit
 pdfplumber
 pandas
 numpy
+transformers<4.44.0
 sentence-transformers
 llama-index==0.14.18
 llama-index-core==0.14.18
